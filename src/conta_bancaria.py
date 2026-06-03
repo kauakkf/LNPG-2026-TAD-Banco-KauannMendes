@@ -5,25 +5,45 @@ class ContaBancaria:
                  titular,
                  banco,
                  saldo_inicial):
-        pass
+
+        self.numero = 0
+        self.saldo = 0
+        self.titular = titular
+        self.banco = banco
+
+        if numero > 0:
+            self.numero = numero
+
+        if saldo_inicial >= 0:
+            self.saldo = saldo_inicial
 
     def depositar(self, valor):
-        pass
+        
+        if valor > 0:
+            self.saldo += valor
     
     def sacar(self, valor):
-        pass
+        
+        if valor <= 0:
+            return False
+
+        if valor > self.saldo:
+            return False
+
+        self.saldo -= valor
+        return True
     
     def consultar_saldo(self):
-        pass
+        return self.saldo
     
     def get_numero(self):
-        pass
+        return self.numero
     
     def get_titular(self):
-        pass
+        return self.titular
     
     def get_banco(self):
-        pass
+        return self.banco
     
     def esta_ativa(self):
-        pass
+        return self.saldo > 0
