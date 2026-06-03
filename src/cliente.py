@@ -1,25 +1,47 @@
+from validador import Validador
+
 class Cliente:
 
     def __init__(self, nome, cpf,
                  telefone=None,
                  email=None):
                    
-        pass
+        self.nome = None
+        self.cpf = None
+        self.telefone = None
+        self.email = None
+
+        if Validador.nome_valido(nome):
+            self.nome = nome
+
+        if Validador.cpf_valido(cpf):
+            self.cpf = cpf
+
+        if telefone is not None:
+            if Validador.telefone_valido(telefone):
+                self.telefone = telefone
+
+        if email is not None:
+            if Validador.email_valido(email):
+                self.email = email
     
     def get_nome(self):
-        pass
+        return self.nome
     
     def get_cpf(self):
-        pass
+        return self.cpf
     
     def get_telefone(self):
-        pass
+        return self.telefone
     
     def get_email(self):
-        pass
+        return self.email
     
     def alterar_telefone(self, telefone):
-        pass
+        
+        if Validador.telefone_valido(telefone):
+            self.telefone = telefone
     
     def alterar_email(self, email):
-        pass
+        if Validador.email_valido(email):
+            self.email = email
